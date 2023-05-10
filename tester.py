@@ -60,5 +60,11 @@ class Day04(unittest.TestCase):
     def test_part_2_example_4(self):
         self.assertEqual(day04.isValid("oiii ioii iioi iiio", 2), False)
         
+class Day05(unittest.TestCase):
+    def test_part1_full_example(self):
+        self.assertEqual(day05.jump([0, 3, 0, 1, -3], False), (5, [2, 5, 0, 1, -2]))
+    def test_part2_full_example(self):
+        self.assertEqual(day05.jump([0, 3, 0, 1, -3], True), (10, [2, 3, 2, 3, -1]))
+        
 if __name__ == '__main__':
     unittest.main()
