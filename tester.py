@@ -66,5 +66,15 @@ class Day05(unittest.TestCase):
     def test_part2_full_example(self):
         self.assertEqual(day05.jump([0, 3, 0, 1, -3], True), (10, [2, 3, 2, 3, -1]))
         
+class Day06(unittest.TestCase):
+    def test_part1_example1(self):
+        bank = [0, 2, 7, 0]
+        day06.balance(bank)
+        self.assertEqual(bank, [2, 4, 1, 2])
+    def test_part1_full_example(self):
+        self.assertEqual(day06.part1([0,2, 7, 0]), 5)
+    def test_part2_full_example(self):
+        self.assertEqual(day06.part2([0, 2, 7, 0]), 4)
+    
 if __name__ == '__main__':
     unittest.main()
