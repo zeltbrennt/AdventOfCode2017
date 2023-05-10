@@ -38,11 +38,11 @@ class Day03(unittest.TestCase):
     def test_part_1_example_4(self):
         self.assertEqual(day03.part1(1024), 31)
     def test_part_2_example_1(self):
-        self.assertEqual(day03.part2(1), 1)
+        self.assertEqual(day03.part2(1), 2)
     def test_part_2_example_2(self):
-        self.assertEqual(day03.part2(12), 57)
+        self.assertEqual(day03.part2(23), 25)
     def test_part_2_example_3(self):
-        self.assertEqual(day03.part2(23), 806)
+        self.assertEqual(day03.part2(747), 806)
         
 class Day04(unittest.TestCase):
     def test_part_1_example_1(self):
