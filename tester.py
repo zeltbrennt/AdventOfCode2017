@@ -100,5 +100,18 @@ class Day07(unittest.TestCase):
     def test_part2_example(self):
         self.assertEqual(day07.part2(self.example), 60)
         
+class Day08(unittest.TestCase):
+    def __init__(self, methodName: str = "runTest") -> None:
+        super().__init__(methodName)
+        self.example = [
+            "b inc 5 if a > 1",
+            "a inc 1 if b < 5",
+            "c dec -10 if a >= 1",
+            "c inc -20 if c == 10"
+]
+    def test_part1_example(self):
+        self.assertEqual(day08.part1(self.example), 1)
+    def test_part2_example(self):
+        self.assertEqual(day08.part2(self.example), 10)
 if __name__ == '__main__':
     unittest.main()
