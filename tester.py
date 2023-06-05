@@ -113,5 +113,35 @@ class Day08(unittest.TestCase):
         self.assertEqual(day08.part1(self.example), 1)
     def test_part2_example(self):
         self.assertEqual(day08.part2(self.example), 10)
+    
+class Day09(unittest.TestCase):
+    def test_part1_example_1(self):
+        self.assertEqual(day09.part1("{{{}}}"), 6)
+    def test_part1_example_2(self):
+        self.assertEqual(day09.part1("{{},{}}"), 5)
+    def test_part1_example_3(self):
+        self.assertEqual(day09.part1("{{{},{},{{}}}}"), 16)
+    def test_part1_example_4(self):
+        self.assertEqual(day09.part1("{<a>,<a>,<a>,<a>}"),1)
+    def test_part1_example_5(self):
+        self.assertEqual(day09.part1("{{<ab>},{<ab>},{<ab>},{<ab>}}"), 9)
+    def test_part1_example_6(self):
+        self.assertEqual(day09.part1("{{<!!>},{<!!>},{<!!>},{<!!>}}"), 9)
+    def test_part1_example_7(self):
+        self.assertEqual(day09.part1("{{<a!>},{<a!>},{<a!>},{<ab>}}"), 3)
+    def test_part2_example_1(self):
+        self.assertEqual(day09.part2("<>"), 0)
+    def test_part2_example_2(self):
+        self.assertEqual(day09.part2("<random characters>"), 17)
+    def test_part2_example_3(self):
+        self.assertEqual(day09.part2("<<<<>"), 3)
+    def test_part2_example_4(self):
+        self.assertEqual(day09.part2("<{!>}>"),2)
+    def test_part2_example_5(self):
+        self.assertEqual(day09.part2("<!!>"), 0)
+    def test_part2_example_6(self):
+        self.assertEqual(day09.part2("<!!!>>"), 0)
+    def test_part2_example_7(self):
+        self.assertEqual(day09.part2('<{o"i!a,<{i<a>'), 10)    
 if __name__ == '__main__':
     unittest.main()
