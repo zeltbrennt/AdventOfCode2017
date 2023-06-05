@@ -142,6 +142,25 @@ class Day09(unittest.TestCase):
     def test_part2_example_6(self):
         self.assertEqual(day09.part2("<!!!>>"), 0)
     def test_part2_example_7(self):
-        self.assertEqual(day09.part2('<{o"i!a,<{i<a>'), 10)    
+        self.assertEqual(day09.part2('<{o"i!a,<{i<a>'), 10)   
+        
+class Day10(unittest.TestCase):
+    def test_part1_example(self):
+        result = day10.knot_hash(list(range(5)), [3, 4, 1, 5])[0]
+        self.assertEqual(result[0] * result[1], 12)
+    def test_ASCII_transform(self):
+        self.assertEqual(day10.string_to_ASCII("1,2,3"), [49,44,50,44,51,17,31,73,47,23])
+    def test_dense(self):
+        self.assertEqual(day10.dense([65,27,9,1,4,3,40,50,91,7,6,0,2,5,68,22]), [64])
+    def test_repr_hex(self):
+        self.assertEqual(day10.repr_hex([64, 7, 255]), "4007ff")
+    def test_part2_ex1(self):
+        self.assertEqual(day10.part2(""), "a2582a3a0e66e6e86e3812dcb672a272")
+    def test_part2_ex2(self):
+        self.assertEqual(day10.part2("AoC 2017"), "33efeb34ea91902bb2f59c9920caa6cd")
+    def test_part2_ex3(self):
+        self.assertEqual(day10.part2("1,2,3"), "3efbe78a8d82f29979031a4aa0b16a9d")
+    def test_part2_ex3(self):
+        self.assertEqual(day10.part2("1,2,4"), "63960835bcdc130f0b66d7ff4f6a5a8e")
 if __name__ == '__main__':
     unittest.main()
