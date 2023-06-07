@@ -191,6 +191,13 @@ class Day12(unittest.TestCase):
         self.assertEqual(day12.part1(self.example), 6)
     def test_part2(self):
         self.assertEqual(day12.part2(self.example), 2)
+        
+class Day13(unittest.TestCase):
+    def __init__(self, methodName: str = "runTest") -> None:
+        super().__init__(methodName)
+        self.example = ["0: 3", "1: 2", "4: 4", "6: 4"]
+    def test_part1(self):
+        self.assertEqual(day13.part1(self.example), 24)
     
 if __name__ == '__main__':
     unittest.main()
