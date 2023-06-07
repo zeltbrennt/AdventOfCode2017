@@ -173,6 +173,24 @@ class Day11(unittest.TestCase):
     def test_part1_ex4(self):
         self.assertEqual(day11.part1("se,sw,se,sw,sw"), 3)
 
+class Day12(unittest.TestCase):
+    def __init__(self, methodName: str = "runTest") -> None:
+        super().__init__(methodName)
+        self.example = [
+            "0 <-> 2",
+            "1 <-> 1",
+            "2 <-> 0, 3, 4",
+            "3 <-> 2, 4",
+            "4 <-> 2, 3, 6",
+            "5 <-> 6",
+            "6 <-> 4, 5",
+        ]
+    def test_input_parsing(self):
+        self.assertEqual(day12.parse_input(self.example), {'0': ['2'], '1': ['1'], '2': ['0', '3', '4'], '3': ['2', '4'], '4': ['2', '3', '6'], '5': ['6'], '6': ['4', '5']})
+    def test_part1(self):
+        self.assertEqual(day12.part1(self.example), 6)
+    def test_part2(self):
+        self.assertEqual(day12.part2(self.example), 2)
     
 if __name__ == '__main__':
     unittest.main()
