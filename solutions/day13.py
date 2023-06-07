@@ -1,16 +1,24 @@
 
-def part1(puzzle: list[str]):
-    firewall = {}
+def part1(puzzle: list[str]) -> int:
     severity = 0
     for line in puzzle:
-        k, v = (int(x) for x in line.split(": "))
-        firewall[k] = v
-    total = k + 1
-    for k, v in firewall.items():
-        catch = [x for x in range(total) if x % (2 * v - 2) == 0]
-        if k in catch: 
-            severity += k * v
+        d, r = (int(x) for x in line.split(": "))
+        if d % (2 * r - 2) == 0: 
+            severity += d * r
     return severity
     
-def part2(puzzle):
-    pass
+def part2(puzzle: list[str]) -> int:
+    delay = 0
+    firewall = {}
+    for line in puzzle:
+        d, r = (int(x) for x in line.split(": "))
+        firewall[d] = r
+    catched = True
+    while catched:
+        catched = False
+        for d, r in firewall.items():
+            if (d + delay) % (2 * r - 2) == 0: 
+                delay += 1
+                catched = True
+                break
+    return delay

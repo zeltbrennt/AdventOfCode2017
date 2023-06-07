@@ -198,6 +198,8 @@ class Day13(unittest.TestCase):
         self.example = ["0: 3", "1: 2", "4: 4", "6: 4"]
     def test_part1(self):
         self.assertEqual(day13.part1(self.example), 24)
+    def test_part2(self):
+        self.assertEqual(day13.part2(self.example), 10)
     
 if __name__ == '__main__':
     unittest.main()
