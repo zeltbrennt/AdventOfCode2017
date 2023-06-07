@@ -162,5 +162,17 @@ class Day10(unittest.TestCase):
         self.assertEqual(day10.part2("1,2,3"), "3efbe78a8d82f29979031a4aa0b16a9d")
     def test_part2_ex3(self):
         self.assertEqual(day10.part2("1,2,4"), "63960835bcdc130f0b66d7ff4f6a5a8e")
+        
+class Day11(unittest.TestCase):
+    def test_part1_ex1(self):
+        self.assertEqual(day11.part1("ne,ne,ne"), 3)
+    def test_part1_ex2(self):
+        self.assertEqual(day11.part1("ne,ne,sw,sw"), 0)
+    def test_part1_ex3(self):
+        self.assertEqual(day11.part1("ne,ne,s,s"), 2)
+    def test_part1_ex4(self):
+        self.assertEqual(day11.part1("se,sw,se,sw,sw"), 3)
+
+    
 if __name__ == '__main__':
     unittest.main()
