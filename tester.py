@@ -146,7 +146,7 @@ class Day09(unittest.TestCase):
         
 class Day10(unittest.TestCase):
     def test_part1_example(self):
-        result = day10.knot_hash(list(range(5)), [3, 4, 1, 5])[0]
+        result = day10.hash_iter(list(range(5)), [3, 4, 1, 5])[0]
         self.assertEqual(result[0] * result[1], 12)
     def test_ASCII_transform(self):
         self.assertEqual(day10.string_to_ASCII("1,2,3"), [49,44,50,44,51,17,31,73,47,23])
@@ -200,6 +200,14 @@ class Day13(unittest.TestCase):
         self.assertEqual(day13.part1(self.example), 24)
     def test_part2(self):
         self.assertEqual(day13.part2(self.example), 10)
-    
+        
+class Day14(unittest.TestCase):
+    def test_part1(self):
+        self.assertEqual(day14.part1("flqrgnkx"), 8108)
+    def test_neighbors1(self):
+        self.assertEqual(day14.get_neighbors(0, 0), [(1, 0), (0, 1)])
+    def test_part2(self):
+        self.assertEqual(day14.part2("flqrgnkx"), 1242)
+        
 if __name__ == '__main__':
     unittest.main()
