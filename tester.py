@@ -209,5 +209,14 @@ class Day14(unittest.TestCase):
     def test_part2(self):
         self.assertEqual(day14.part2("flqrgnkx"), 1242)
         
+class Day15(unittest.TestCase):
+    def test_generator_1(self):
+        self.assertEqual(day15.generate(65, 16807, 1),1092455)
+    def test_generator_2(self):
+        self.assertEqual(day15.generate(8921, 48271, 1),430625591)
+    def test_part1_example(self):
+        self.assertEqual(day15.part1((65, 8921)), 588)
+    def test_part2_example(self):
+        self.assertEqual(day15.part2((65, 8921)), 309)
 if __name__ == '__main__':
     unittest.main()
