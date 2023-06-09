@@ -1,20 +1,23 @@
 import functools
 
 def part1(puzzle):
-    result = knot_hash(list(range(256)), puzzle)[0]
+    result = hash_iter(list(range(256)), puzzle)[0]
     return result[0] * result[1]
 
 def part2(puzzle):
-    lengths = string_to_ASCII(puzzle)
-    numbers = list(range(256))
+    return knot_hash(puzzle)
+
+def knot_hash(input: str, bits = 256) -> str:
+    lengths = string_to_ASCII(input)
+    numbers = list(range(bits))
     current = 0
     skip = 0
     for _ in range(64):
-        numbers, current, skip = knot_hash(numbers, lengths, current, skip)
+        numbers, current, skip = hash_iter(numbers, lengths, current, skip)
     dense_hash = dense(numbers)
     return repr_hex(dense_hash)
 
-def knot_hash(numbers: list, lengths: list, current = 0, skip = 0) -> tuple:
+def hash_iter(numbers: list, lengths: list, current = 0, skip = 0) -> tuple:
     for length in lengths:
         if (current + length) <= len(numbers) :
             sublist = numbers[current:current+length]
