@@ -218,5 +218,13 @@ class Day15(unittest.TestCase):
         self.assertEqual(day15.part1((65, 8921)), 588)
     def test_part2_example(self):
         self.assertEqual(day15.part2((65, 8921)), 309)
+        
+class Day16(unittest.TestCase):
+    def test_part1_example1(self):
+        self.assertEqual(day16.spin(list("abcde"), 1), list("eabcd"))
+    def test_part1_example2(self):
+        self.assertEqual(day16.exchange(list("eabcd"), 3, 4), list("eabdc"))
+    def test_part1_example3(self):
+        self.assertEqual(day16.partner(list("eabdc"), "e", "b"), list("baedc"))
 if __name__ == '__main__':
     unittest.main()
