@@ -234,7 +234,7 @@ class Day17(unittest.TestCase):
 class Day18(unittest.TestCase):
     def __init__(self, methodName: str = "runTest") -> None:
         super().__init__(methodName)
-        self.example = [
+        self.example1 = [
             "set a 1",
             "add a 2",
             "mul a a",
@@ -246,8 +246,18 @@ class Day18(unittest.TestCase):
             "set a 1",
             "jgz a -2"
         ]
+        self.example2 = [
+            "snd 1",
+            "snd 2",
+            "snd p",
+            "rcv a",
+            "rcv b",
+            "rcv c",
+            "rcv d"
+        ]
     def test_part1(self):
-        self.assertEqual(day18.part1(self.example), 4)
-    
+        self.assertEqual(day18.part1(self.example1), 4)
+    def test_part2(self):
+        self.assertEqual(day18.part2(self.example2), 3)
 if __name__ == '__main__':
     unittest.main()
