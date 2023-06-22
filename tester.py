@@ -276,5 +276,23 @@ class Day19(unittest.TestCase):
     def test_part2_example(self):
         self.assertEqual(day19.part2(self.example), 38)
         
+class Day20(unittest.TestCase):
+    def __init__(self, methodName: str = "runTest") -> None:
+        super().__init__(methodName)
+        self.example1 = [
+            'p=< 3,0,0>, v=< 2,0,0>, a=<-1,0,0>',
+            'p=< 4,0,0>, v=< 0,0,0>, a=<-2,0,0>'
+        ]
+        self.example2 = [
+            'p=<-6,0,0>, v=< 3,0,0>, a=< 0,0,0>',
+            'p=<-4,0,0>, v=< 2,0,0>, a=< 0,0,0>',
+            'p=<-2,0,0>, v=< 1,0,0>, a=< 0,0,0>',
+            'p=< 3,0,0>, v=<-1,0,0>, a=< 0,0,0>'
+        ]
+    def test_part1_example(self):
+        self.assertEqual(day20.part1(self.example1), 0)
+    def test_part2_example(self):
+        self.assertEqual(day20.part2(self.example2), 1)
+        
 if __name__ == '__main__':
     unittest.main()
