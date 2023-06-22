@@ -259,5 +259,20 @@ class Day18(unittest.TestCase):
         self.assertEqual(day18.part1(self.example1), 4)
     def test_part2(self):
         self.assertEqual(day18.part2(self.example2), 3)
+        
+class Day19(unittest.TestCase):
+    def __init__(self, methodName: str = "runTest") -> None:
+        super().__init__(methodName)
+        self.example = [
+            "     |          ",
+            "     |  +--+    ",
+            "     A  |  C    ",
+            " F---|----E|--+ ",
+            "     |  |  |  D ",
+            "     +B-+  +--+ "
+        ]
+    def test_part1_example(self):
+        self.assertEqual(day19.part1(self.example), "ABCDEF")
+        
 if __name__ == '__main__':
     unittest.main()
