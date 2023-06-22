@@ -1,3 +1,4 @@
+from tqdm import tqdm
 
 def part1(puzzle: list[str]) -> str:
     programs = [chr(x) for x in range(97, 97+16)]
