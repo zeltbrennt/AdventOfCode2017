@@ -310,9 +310,13 @@ class Day22(unittest.TestCase):
             "#..",
             "..."]
     def test_part1_example_70_bursts(self):
-        self.assertEqual(day22.solve(self.example, 70), 41)
+        self.assertEqual(day22.solve(self.example, 70, False), 41)
     def test_part1_example_10000_bursts(self):
-        self.assertEqual(day22.solve(self.example, 10000), 5587)
+        self.assertEqual(day22.solve(self.example, 10000, False), 5587)
+    def test_part2_example_100_bursts(self):
+        self.assertEqual(day22.solve(self.example, 100, True), 26)
+    def test_part2_example_10000000_bursts(self):
+        self.assertEqual(day22.solve(self.example, 10000000, True), 2511944)
         
 if __name__ == '__main__':
     unittest.main()
