@@ -294,5 +294,13 @@ class Day20(unittest.TestCase):
     def test_part2_example(self):
         self.assertEqual(day20.part2(self.example2), 1)
         
+class Day21(unittest.TestCase):
+    def test_part1_example(self):
+        self.assertEqual(day21.solve([
+            "../.# => ##./#../...",
+            ".#./..#/### => #..#/..../..../#..#"
+            ], 2 
+            ), 12)
+        
 if __name__ == '__main__':
     unittest.main()

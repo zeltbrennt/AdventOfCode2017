@@ -1,9 +1,9 @@
 from solutions import *
 
-with open("input/day20.txt") as f:
+with open("input/day21.txt") as f:
     puzzle = f.read().splitlines()
-    
 
-print("\n\tDAY 20\n======================")
-print(f"Part 1: {day20.part1(puzzle)}")
-print(f"Part 2: {day20.part2(puzzle)}")
+
+print("\n\tDAY 21\n======================")
+print(f"Part 1: {day21.part1(puzzle)}")
+print(f"Part 2: {day21.part2(puzzle)}")
