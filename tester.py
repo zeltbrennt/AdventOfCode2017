@@ -302,5 +302,17 @@ class Day21(unittest.TestCase):
             ], 2 
             ), 12)
         
+class Day22(unittest.TestCase):
+    def __init__(self, methodName: str = "runTest") -> None:
+        super().__init__(methodName)
+        self.example = [
+            "..#",
+            "#..",
+            "..."]
+    def test_part1_example_70_bursts(self):
+        self.assertEqual(day22.solve(self.example, 70), 41)
+    def test_part1_example_10000_bursts(self):
+        self.assertEqual(day22.solve(self.example, 10000), 5587)
+        
 if __name__ == '__main__':
     unittest.main()
