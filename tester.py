@@ -318,5 +318,20 @@ class Day22(unittest.TestCase):
     def test_part2_example_10000000_bursts(self):
         self.assertEqual(day22.solve(self.example, 10000000, True), 2511944)
         
+class Day24(unittest.TestCase):
+    def __init__(self, methodName: str = "runTest") -> None:
+        super().__init__(methodName)
+        self.example = [
+            "0/1",
+            "0/2",
+            "9/10",
+            "3/2",
+            "2/2",
+            "3/4",
+            "3/5",
+            "10/1",
+        ]
+    def test_part1_example(self):
+        self.assertEqual(day24.part1(self.example), 31)
 if __name__ == '__main__':
     unittest.main()
