@@ -1,55 +1,41 @@
-class Node:
-        
-    def __init__(self, repr: str) -> None:
-        self.repr = repr
-        self.ports = [int(x) for x in repr.split('/')]
-        self.strength = sum(self.ports)
-
-    def get_components(self, visited: list, all_nodes) -> list[str]:
-        components = []
-        for comp in all_nodes:
-            if comp not in visited and self.ports[1] in comp.ports:
-                if comp.ports.index(self.ports[1]) == 1: 
-                    comp.flip()
-                components.append(comp)
-        return components
-            
-    def flip(self):
-        self.ports = self.ports[::-1]
-    
-    def __str__(self) -> str:
-        return f"{self.ports[0]}+{self.ports[1]}"
-    
-    def __repr__(self) -> str:
-        return self.repr
-    
-    def __hash__(self) -> int:
-        return hash(self.repr)
-    
-
 def part1(puzzle: list[str]) -> int:
-    all_nodes = []
-    for line in puzzle:
-        all_nodes.append(Node(line))
+    comp = parse_input(puzzle)
     result = 0
-    for node in all_nodes:
-        if 0 in node.ports:
-            temp = max(explore(node, [], all_nodes), result)
-            result = max(result, temp)
-    return result
+    bridges = []
+    for c in comp:
+        if 0 in c:
+            explore(c, [*c], comp, [], bridges)
 
-def part2(puzzle):
-    pass
+def part2(puzzle: list[str]) -> int:
+    pass 
 
-def explore(node: Node, visited: list[Node], all_nodes: list[Node]):
-    visited.append(node)
+def parse_input(input: list[str]) -> list[list[int]]:
+    comp = []
+    for line in input:
+        comp.append([int(x) for x in line.split('/')])
+    return comp
+
+def explore(comp: list[int], 
+            bridge: list[int], 
+            all_comp: list[list[int]], 
+            used_comp: list[list[int]],
+            bridges: list[list[int]]):
+    port = bridge[-1]
+    used_comp.append(comp)
     strength = 0
-    for n in node.get_components(visited, all_nodes):
-        strength = max(strength, explore(n, visited.copy(), all_nodes))
-    #print(" + ".join((str(x) for x in visited)),  "=", sum((x.strength for x in visited)))
-    return strength + node.strength
-        
+    for c in get_next_comp(port, used_comp, all_comp):
+        value = c[1 - c.index(port)]
+        new_bridge = bridge + [value]
+        strength = max(strength, explore(c, new_bridge, all_comp, used_comp.copy(), bridges))
+    print(used_comp, sum(sum(x) for x in used_comp))
+    bridges.append(used_comp)
+    return strength + sum(comp)
 
-    
-    
-#1591 low
+def get_next_comp(port: int, 
+                used: list[list[int]], 
+                all: list[list[int]]) -> list[list[int]]:
+    next_comps = []
+    for comp in all:
+        if comp not in used and port in comp:
+            next_comps.append(comp)
+    return next_comps
