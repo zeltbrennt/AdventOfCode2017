@@ -1,10 +1,14 @@
+
 def part1(puzzle: list[str]) -> int:
-    comp = parse_input(puzzle)
+    all_components = parse_input(puzzle)
+    bridges = {}
     result = 0
-    bridges = []
-    for c in comp:
-        if 0 in c:
-            explore(c, [*c], comp, [], bridges)
+    for comp in all_components:
+        if 0 in comp:
+            result = max(result, explore(comp, sorted([*comp]), all_components, [], bridges))
+    od = dict(sorted(bridges.items(), reverse=True))
+    return result
+    
 
 def part2(puzzle: list[str]) -> int:
     pass 
@@ -27,8 +31,8 @@ def explore(comp: list[int],
         value = c[1 - c.index(port)]
         new_bridge = bridge + [value]
         strength = max(strength, explore(c, new_bridge, all_comp, used_comp.copy(), bridges))
-    print(used_comp, sum(sum(x) for x in used_comp))
-    bridges.append(used_comp)
+    #print(used_comp, sum(sum(x) for x in used_comp))
+    bridges[sum(sum(x) for x in used_comp)] = used_comp
     return strength + sum(comp)
 
 def get_next_comp(port: int, 
