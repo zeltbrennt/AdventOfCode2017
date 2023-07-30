@@ -160,7 +160,7 @@ class Day10(unittest.TestCase):
         self.assertEqual(day10.part2("AoC 2017"), "33efeb34ea91902bb2f59c9920caa6cd")
     def test_part2_ex3(self):
         self.assertEqual(day10.part2("1,2,3"), "3efbe78a8d82f29979031a4aa0b16a9d")
-    def test_part2_ex3(self):
+    def test_part2_ex4(self):
         self.assertEqual(day10.part2("1,2,4"), "63960835bcdc130f0b66d7ff4f6a5a8e")
         
 class Day11(unittest.TestCase):
@@ -322,16 +322,18 @@ class Day24(unittest.TestCase):
     def __init__(self, methodName: str = "runTest") -> None:
         super().__init__(methodName)
         self.example = [
-            "0/1",
             "0/2",
-            "9/10",
-            "3/2",
             "2/2",
+            "2/3",
             "3/4",
             "3/5",
+            "0/1",
             "10/1",
+            "9/10"
         ]
     def test_part1_example(self):
         self.assertEqual(day24.part1(self.example), 31)
+    def test_part2_example(self):
+        self.assertEqual(day24.part2(self.example), 19)
 if __name__ == '__main__':
     unittest.main()
